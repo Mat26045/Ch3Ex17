@@ -1,41 +1,33 @@
 #include <iostream>
-#include <cstdlib>  
-#include <ctime>    
-using namespace std;
+#include <cstdlib>
+#include <ctime>
 
-int main()
-{
-        const int MIN_VALUE = 100,
-        MAX_VALUE = 1000;
+void math_tutor() {
+      std::srand(std::time(0));
 
-       int num_1,
-        num_2,
-        answer;
+      int num1 = std::rand() % 900 + 100;
+    int num2 = std::rand() % 900 + 100;
 
-    unsigned seed = time(0);
+    std::cout << num1 << " + " << num2 << " = ?" << std::endl;
 
-    srand(seed);
+    std::cout << "Press Enter when you are ready to check your answer...";
+    std::cin.ignore(); 
 
-    cout << endl;
-    cout << "-----------------------------------------\n\n";
-    cout << "This program displays two random numbers\n";
-    cout << "to be added.\n" << endl;
+     int student_answer;
+    std::cout << "What is your answer? ";
+    std::cin >> student_answer;
 
-     num_1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
-    num_2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+     int correct_answer = num1 + num2;
 
+     if (student_answer == correct_answer) {
+        std::cout << num1 << " + " << num2 << " = " << correct_answer << ". You are correct!" << std::endl;
+    }
+    else {
+        std::cout << num1 << " + " << num2 << " = " << correct_answer << ". Your answer is not correct." << std::endl;
+    }
+}
 
-    answer = num_1 + num_2;
-    cout << num_1 << " + " << num_2 << " = ? \n" << endl;
-
-       cout << "Press \"Enter\" when you are ready to see the answer";
-    cin.get();
-    cout << endl;
-
-    cout << num_1 << " + " << num_2 << " = ";
-    cout << answer << endl;
-    cout << "\n-----------------------------------------\n";
-    cout << endl;
-
+int main() {
+    math_tutor();
     return 0;
 }
